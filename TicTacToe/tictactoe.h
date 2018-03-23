@@ -2,6 +2,11 @@
 #define TICTACTOE_H
 
 #include <QWidget>
+#include <QtGui>
+#include <QtCore>
+#include <QDialog>
+#include <QGraphicsScene>
+#include <QDebug>
 
 namespace Ui {
 class TicTacToe;
@@ -17,6 +22,10 @@ public:
 
 private:
     Ui::TicTacToe *ui;
+    QGraphicsScene *scene;
+
+protected:
+    void paintEvent(QPaintEvent *e);
 };
 
 #endif // TICTACTOE_H
