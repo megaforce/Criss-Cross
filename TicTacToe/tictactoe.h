@@ -8,6 +8,7 @@
 #include <QDialog>
 #include <QGraphicsScene>
 #include <QDebug>
+#include <QPoint>
 
 namespace Ui {
 class TicTacToe;
