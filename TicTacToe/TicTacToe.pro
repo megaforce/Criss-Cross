@@ -25,10 +25,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        tictactoe.cpp
+        tictactoe.cpp \
+    player.cpp
 
 HEADERS += \
-        tictactoe.h
+        tictactoe.h \
+    player.h
 
 FORMS += \
         tictactoe.ui

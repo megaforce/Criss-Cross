@@ -1,6 +1,7 @@
 #ifndef TICTACTOE_H
 #define TICTACTOE_H
 
+#include "player.h"
 #include <QWidget>
 #include <QtGui>
 #include <QtCore>
@@ -21,6 +22,9 @@ public:
     ~TicTacToe();
 
 private:
+    Player player;
+    void mousePressEvent(QMouseEvent *event);
+    void drawMap();
     Ui::TicTacToe *ui;
     QGraphicsScene *scene;
 
