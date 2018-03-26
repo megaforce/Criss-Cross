@@ -36,20 +36,10 @@ void TicTacToe::mousePressEvent(QMouseEvent *event)
 {
 
 
-
-
     if (event->button() == Qt::LeftButton)
     {
         qDebug()<<"x: "<<event->x();
         qDebug()<<"y: "<<event->y();
-        QPoint remapped = ui->graphicsView->mapFromParent( event->pos() );
-        qDebug()<<remapped;
-        if ( ui->graphicsView->rect().contains( remapped ) )
-        {
-             QPointF mousePoint = ui->graphicsView->mapToScene( remapped );
-             qDebug()<<mousePoint;
-        }
-
     }
 
 }
