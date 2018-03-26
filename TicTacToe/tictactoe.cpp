@@ -35,23 +35,28 @@ void TicTacToe::drawMap()
 void TicTacToe::mousePressEvent(QMouseEvent *event)
 {
 
-
-
-
     if (event->button() == Qt::LeftButton)
     {
-        qDebug()<<"x: "<<event->x();
-        qDebug()<<"y: "<<event->y();
+
         QPoint remapped = ui->graphicsView->mapFromParent( event->pos() );
-        qDebug()<<remapped;
+
         if ( ui->graphicsView->rect().contains( remapped ) )
         {
-             QPointF mousePoint = ui->graphicsView->mapToScene( remapped );
-             qDebug()<<mousePoint;
+            QPointF mousePoint = ui->graphicsView->mapToScene( remapped );
+            player.xPressed = mousePoint.x();
+            player.yPressed = mousePoint.y();
+            calculateField();
+
         }
 
     }
 
+}
+
+void TicTacToe::calculateField()
+{
+    qDebug()<<player.xPressed / 10<<" "<<player.yPressed / 10;
+    elements.append(element{QPoint(player.xPressed/10,player.yPressed/10),2});
 }
 
 void TicTacToe::paintEvent(QPaintEvent *e)

@@ -9,6 +9,13 @@
 #include <QGraphicsScene>
 #include <QDebug>
 #include <QPoint>
+#include <QLinkedList>
+
+struct element
+{
+    QPoint location; //elements quadrant
+    short type; // 0 = nought 1 = cross
+};
 
 namespace Ui {
 class TicTacToe;
@@ -23,11 +30,13 @@ public:
     ~TicTacToe();
 
 private:
+    QList<element> elements;
     Player player;
     void mousePressEvent(QMouseEvent *event);
+    void calculateField();
     void drawMap();
     Ui::TicTacToe *ui;
-    QGraphicsScene *scene;
+    QGraphicsScene *scene;     
 
 protected:
     void paintEvent(QPaintEvent *e);
