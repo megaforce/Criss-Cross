@@ -46,7 +46,7 @@ void TicTacToe::mousePressEvent(QMouseEvent *event)
             player.xPressed = mousePoint.x();
             player.yPressed = mousePoint.y();
             calculateField();
-
+            update();
         }
 
     }
@@ -56,10 +56,25 @@ void TicTacToe::mousePressEvent(QMouseEvent *event)
 void TicTacToe::calculateField()
 {
     qDebug()<<player.xPressed / 10<<" "<<player.yPressed / 10;
-    elements.append(element{QPoint(player.xPressed/10,player.yPressed/10),2});
+    elements.append(element{player.xPressed/10,player.yPressed/10,0});
 }
 
 void TicTacToe::paintEvent(QPaintEvent *e)
 {
+    QPainter painter(this);
+    QPen pen(Qt::green);
+    pen.setWidth(5);
+    painter.setPen(pen);
 
+    for (int i = 0; i < elements.length(); i++)
+    {
+        if (elements[i].type == 0) //noughts
+        { //drawEllipse(int x, int y, int width, int height)
+          painter.drawEllipse((elements[i].x * 10) + 5, elements[i].y + 5  , 2.5, 2.5);
+        }
+        if (elements[i].type == 1) //crosses
+        {
+
+        }
+    }
 }

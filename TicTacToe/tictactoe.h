@@ -13,7 +13,8 @@
 
 struct element
 {
-    QPoint location; //elements quadrant
+    short x;
+    short y;
     short type; // 0 = nought 1 = cross
 };
 
