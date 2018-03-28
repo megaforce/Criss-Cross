@@ -60,16 +60,16 @@ void TicTacToe::calculateField()
 
 void TicTacToe::paintEvent(QPaintEvent *e)
 {
-    QPainter painter(this);
+    QPainterPath painter;
+    QBrush redbrush(Qt::red);
     QPen pen(Qt::green);
-    pen.setWidth(5);
-    painter.setPen(pen);
     for (int i = 0; i < elements.length(); i++)
     {
         if (elements[i].type == 0) //noughts
         { //drawEllipse(int x, int y, int width, int height)
           QPoint ticpaint = ui->graphicsView->mapFromScene((elements[i].x * 10) + 5,(elements[i].y*10) + 5 );
-          painter.drawEllipse(ticpaint.x(), ticpaint.y()  , 2.5, 2.5);
+          painter.addEllipse(ticpaint.x(), ticpaint.y()  , 2.5, 2.5);
+          scene->addPath(painter,pen,redbrush);
         }
         if (elements[i].type == 1) //crosses
         {
